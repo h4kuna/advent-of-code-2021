@@ -1,0 +1,17 @@
+{
+  "name": "h4kuna/advent-of-code-2021",
+  "description": "description",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "milan",
+      "email": "email@example.com"
+    }
+  ],
+  "require": {
+    "tracy/tracy": "^2.8",
+    "nette/utils": "^3.2",
+    "h4kuna/iterators": "^1.2"
+  }
+}
