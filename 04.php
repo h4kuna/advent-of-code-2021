@@ -7,19 +7,6 @@ require __DIR__ . '/vendor/autoload.php';
 
 $bingoInput = __DIR__ . '/04input.txt';
 
-/**
- * @return array<int>
- */
-function toInt(string $input): array
-{
-	$numbers = [];
-	foreach (explode(',', $input) as $k => $number) {
-		$numbers[$k] = (int) $number;
-	}
-
-	return $numbers;
-}
-
 final class BingoNumber
 {
 	public int $value;

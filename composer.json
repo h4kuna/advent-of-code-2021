@@ -13,5 +13,8 @@
     "tracy/tracy": "^2.8",
     "nette/utils": "^3.2",
     "h4kuna/iterators": "^1.2"
+  },
+  "autoload": {
+    "files": ["common.php"]
   }
 }
