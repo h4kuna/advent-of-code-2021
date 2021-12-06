@@ -3,7 +3,7 @@
 use h4kuna\Iterators;
 use Nette\Utils\Strings;
 
-require __DIR__ . '/vendor/autoload.php';
+require __DIR__ . '/../vendor/autoload.php';
 
 $bingoInput = __DIR__ . '/04input.txt';
 

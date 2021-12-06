@@ -2,7 +2,7 @@
 
 use h4kuna\Iterators;
 
-require __DIR__ . '/vendor/autoload.php';
+require __DIR__ . '/../vendor/autoload.php';
 
 $binaryInput = __DIR__ . '/03input.txt';
 

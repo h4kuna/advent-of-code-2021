@@ -2,7 +2,7 @@
 
 use Nette\Utils;
 
-require __DIR__ . '/vendor/autoload.php';
+require __DIR__ . '/../vendor/autoload.php';
 
 $diveInput = __DIR__ . '/02input.txt';
 
