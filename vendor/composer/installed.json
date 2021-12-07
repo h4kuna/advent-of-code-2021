@@ -43,6 +43,79 @@
         "homepage": "https://github.com/h4kuna/iterators"
     },
     {
+        "name": "nette/tester",
+        "version": "v2.4.1",
+        "version_normalized": "2.4.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/nette/tester.git",
+            "reference": "b54326b3c1a2c6c76d2662a06b5ad5a10d822e98"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/nette/tester/zipball/b54326b3c1a2c6c76d2662a06b5ad5a10d822e98",
+            "reference": "b54326b3c1a2c6c76d2662a06b5ad5a10d822e98",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=7.2 <8.2"
+        },
+        "require-dev": {
+            "ext-simplexml": "*",
+            "phpstan/phpstan": "^0.12"
+        },
+        "time": "2021-08-24T14:13:00+00:00",
+        "bin": [
+            "src/tester"
+        ],
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.4-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "classmap": [
+                "src/"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause",
+            "GPL-2.0-only",
+            "GPL-3.0-only"
+        ],
+        "authors": [
+            {
+                "name": "David Grudl",
+                "homepage": "https://davidgrudl.com"
+            },
+            {
+                "name": "Miloslav Hůla",
+                "homepage": "https://github.com/milo"
+            },
+            {
+                "name": "Nette Community",
+                "homepage": "https://nette.org/contributors"
+            }
+        ],
+        "description": "Nette Tester: enjoyable unit testing in PHP with code coverage reporter. 🍏🍏🍎🍏",
+        "homepage": "https://tester.nette.org",
+        "keywords": [
+            "Xdebug",
+            "assertions",
+            "clover",
+            "code coverage",
+            "nette",
+            "pcov",
+            "phpdbg",
+            "phpunit",
+            "testing",
+            "unit"
+        ]
+    },
+    {
         "name": "nette/utils",
         "version": "v3.2.6",
         "version_normalized": "3.2.6.0",

@@ -12,7 +12,8 @@
   "require": {
     "tracy/tracy": "^2.8",
     "nette/utils": "^3.2",
-    "h4kuna/iterators": "^1.2"
+    "h4kuna/iterators": "^1.2",
+    "nette/tester": "^2.4"
   },
   "autoload": {
     "files": ["common.php"]
