@@ -1,5 +1,7 @@
 <?php declare(strict_types=1);
 
+\Tracy\Debugger::$maxDepth = 10;
+
 /**
  * @return array<int>
  */
