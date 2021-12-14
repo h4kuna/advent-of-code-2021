@@ -5,10 +5,17 @@
 /**
  * @return array<int>
  */
-function toInt(string $input): array
+function toInt(string $input, string $delimiter = ','): array
 {
 	$numbers = [];
-	foreach (explode(',', $input) as $k => $number) {
+
+	if ($delimiter === '') {
+		$data = str_split($input);
+	} else {
+		$data = explode($delimiter, $input);
+	}
+
+	foreach ($data as $k => $number) {
 		$numbers[$k] = (int) $number;
 	}
 
