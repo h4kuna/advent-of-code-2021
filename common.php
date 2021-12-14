@@ -21,3 +21,17 @@ function toInt(string $input, string $delimiter = ','): array
 
 	return $numbers;
 }
+
+
+/**
+ * @param array<string|int, int> $data
+ * @param string|int $key
+ */
+function addCounter(array &$data, $key, int $count = 1): void
+{
+	if (isset($data[$key])) {
+		$data[$key] += $count;
+	} else {
+		$data[$key] = $count;
+	}
+}
