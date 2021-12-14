@@ -58,6 +58,7 @@ start-RW' . PHP_EOL;
 
 	Assert::same(226, findPaths($data));
 }
+
 // B
 {
 	$source = 'start-A
@@ -86,7 +87,7 @@ kj-dc' . PHP_EOL;
 
 	$data = prepareData($source);
 
-	Assert::same(103, findPaths($data));
+	Assert::same(103, findPathsSmall($data));
 }
 
 {
@@ -111,5 +112,5 @@ start-RW' . PHP_EOL;
 
 	$data = prepareData($source);
 
-	Assert::same(3509, findPaths($data));
+	Assert::same(3509, findPathsSmall($data));
 }

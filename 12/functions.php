@@ -85,22 +85,25 @@ function renderPath(array $path): void
 }
 
 
-function onTheWay(Node $here, array $previous): void
+function onTheWay(Node $here, array $start): ?array
 {
+	$out = [];
 	foreach ($here->edges as $edge) {
-		$path = $previous;
-		if ($edge->isSmall() && isset($path[$edge->name])) {
+		$paths = $start;
+		if ($edge->isSmall() && isset($paths[$edge->name])) {
 			continue;
 		}
-		$path[$edge->name] = $edge;
+		$paths[$edge->name] = $edge;
 		if ($edge->isEnd()) {
-			++Counter::$count;
+			// ++Counter::$count;
 			// renderPath($path);
-
+			$out[] = $paths;
 			continue;
 		}
-		onTheWay($edge, $path);
+		$out = array_merge($out, onTheWay($edge, $paths));
 	}
+
+	return $out;
 }
 
 class Paths
@@ -147,31 +150,31 @@ class Paths
  */
 function findPaths(array $data): int
 {
-	Counter::$count = 0;
-	foreach ($data[Node::EDGE_START]->edges as $node) {
-		onTheWay($node, [$data[Node::EDGE_START]->name => $data[Node::EDGE_START], $node->name => $node]);
-	}
+	$start = [$data[Node::EDGE_START]->name => $data[Node::EDGE_START]];
+	$paths = onTheWay($data[Node::EDGE_START], $start);
 
-	return Counter::$count;
+	return count($paths);
 }
 
 
-function onTheWaySmall(Node $here, Paths $previous): void
+function onTheWaySmall(Node $here, array $start): array
 {
+	$out = [];
 	foreach ($here->edges as $edge) {
-		$path = clone $previous;
-		if (!$path->canUse($edge)) {
+		$paths = $start;
+		if ($edge->isSmall() && isset($paths[$edge->name]) && isset($paths['_']) || $edge->isStart()) {
 			continue;
 		}
-		$path->add($edge);
+		$key = $edge->isSmall() && isset($paths[$edge->name]) ? '_' : $edge->name;
+		$paths[$key] = $edge;
 		if ($edge->isEnd()) {
-			++Counter::$count;
-			renderPath($path->paths);
-
+			$out[] = $paths;
 			continue;
 		}
-		onTheWaySmall($edge, $path);
+		$out = array_merge($out, onTheWaySmall($edge, $paths));
 	}
+
+	return $out;
 }
 
 
@@ -180,13 +183,8 @@ function onTheWaySmall(Node $here, Paths $previous): void
  */
 function findPathsSmall(array $data): int
 {
-	Counter::$count = 0;
-	foreach ($data[Node::EDGE_START]->edges as $node) {
-		onTheWaySmall($node, new Paths([
-			$data[Node::EDGE_START]->name => $data[Node::EDGE_START],
-			$node->name => $node,
-		]));
-	}
+	$start = [$data[Node::EDGE_START]->name => $data[Node::EDGE_START]];
+	$paths = onTheWaySmall($data[Node::EDGE_START], $start);
 
-	return Counter::$count;
+	return count($paths);
 }
